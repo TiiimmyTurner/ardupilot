@@ -384,7 +384,7 @@ void RCOutput::push_local(void)
                         period_us = PWM_FRACTION_TO_WIDTH(group.pwm_drv, 1, 1);
                     } else {
                         period_us = PWM_FRACTION_TO_WIDTH(group.pwm_drv,\
-                               (_esc_pwm_max - _esc_pwm_min), (period_us - _esc_pwm_min));
+                               (_esc_pwm_max - _esc_pwm_min), (_esc_pwm_max - period_us));
                     }
                     pwmEnableChannel(group.pwm_drv, j, period_us);
                 } else if (group.current_mode == MODE_PWM_ONESHOT125) {
